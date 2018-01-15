@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="0.5dp"
+            android:columnCount="2"
+            android:rowCount="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="User Credentials: " />
+
+            <Button
+                android:id="@+id/scan_buzzcard_button"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0.2dp"
+                android:onClick="actionButtonReadBuzzcard"
+                android:text="Scan BuzzCard" />
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/buzzcard_data_display"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:background="#236B8E"
+            android:fadeScrollbars="false"
+            android:gravity="top"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@color/colorPrimary"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text="BuzzCard Data: \n\n"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:visibility="visible" />
+
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="0.5dp"
+            android:columnCount="2"
+            android:rowCount="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Activation Code: " />
+
+            <EditText
+                android:id="@+id/security_tag_code"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:hint="Security Tag XXXXX"
+                android:singleLine="true" />
+
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write Settings: " />
+
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0.5dp"
+            android:columnCount="2"
+            android:rowCount="3">
+
+            <CheckBox
+                android:id="@+id/lock_sticker_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:checked="false"
+                android:text="Lock" />
+
+            <CheckBox
+                android:id="@+id/verify_sticker_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:checked="true"
+                android:text="Verify" />
+
+            <CheckBox
+                android:id="@+id/set_sticker_authlim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:checked="false"
+                android:text="Set AUTHLIM" />
+
+            <CheckBox
+                android:id="@+id/sticker_is_blank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:checked="true"
+                android:text="Blank Tag" />
+
+        </GridLayout>
+
+
+        <Button
+            android:id="@+id/write_sticker_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="0.2dp"
+            android:onClick="actionButtonWriteActivationTag"
+            android:text="Write Activation Tag!" />
+
+        <Button
+            android:id="@+id/close_sticker_dialog_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="0.2dp"
+            android:onClick="actionButtonCloseWriteActivationTagDialog"
+            android:text="Close Dialog" />
+
+    </LinearLayout>
+
+</RelativeLayout>

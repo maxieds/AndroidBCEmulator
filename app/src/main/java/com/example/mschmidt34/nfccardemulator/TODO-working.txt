@@ -1,0 +1,90 @@
+            <intent-filter android:label="ndef_message_ifilter">
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.OTHER" />
+                <data
+                    android:scheme="http"
+                    android:host="aptiqmobile.com"
+                    android:pathPattern="iamready" />
+            </intent-filter>
+
+                public enum IntentFilterMatchCodes {
+
+                    MATCH_ADJUSTMENT_MASK(IntentFilter.MATCH_ADJUSTMENT_MASK),
+                    MATCH_ADJUSTMENT_NORMAL(IntentFilter.MATCH_ADJUSTMENT_NORMAL),
+                    MATCH_CATEGORY_EMPTY(IntentFilter.MATCH_CATEGORY_EMPTY),
+                    MATCH_CATEGORY_HOST(IntentFilter.MATCH_CATEGORY_HOST),
+                    MATCH_CATEGORY_MASK(IntentFilter.MATCH_CATEGORY_MASK),
+                    MATCH_CATEGORY_PATH(IntentFilter.MATCH_CATEGORY_PATH),
+                    MATCH_CATEGORY_PORT(IntentFilter.MATCH_CATEGORY_PORT),
+                    MATCH_CATEGORY_SCHEME(IntentFilter.MATCH_CATEGORY_SCHEME),
+                    MATCH_CATEGORY_SCHEME_SPECIFIC_PART(IntentFilter.MATCH_CATEGORY_SCHEME_SPECIFIC_PART),
+                    MATCH_CATEGORY_TYPE(IntentFilter.MATCH_CATEGORY_TYPE),
+                    NO_MATCH_ACTION(IntentFilter.NO_MATCH_ACTION),
+                    NO_MATCH_CATEGORY(IntentFilter.NO_MATCH_CATEGORY),
+                    NO_MATCH_DATA(IntentFilter.NO_MATCH_DATA),
+                    NO_MATCH_TYPE(IntentFilter.NO_MATCH_TYPE);
+
+                    private static final Map<Integer, IntentFilterMatchCodes> MATCH_CODE_MAP = new HashMap<Integer, IntentFilterMatchCodes>();
+                    static {
+                        for (IntentFilterMatchCodes ifMatchCode : values()) {
+                            int matchCode = ifMatchCode.toMatchCode();
+                            Integer mCode = Integer.valueOf(matchCode);
+                            MATCH_CODE_MAP.put(mCode, ifMatchCode);
+                        }
+                    }
+
+                    private int matchCode;
+                    IntentFilterMatchCodes(int initMatchCode) {
+                        this.matchCode = initMatchCode;
+                    }
+
+                    public int toMatchCode() {
+                        return this.matchCode;
+                    }
+
+                    public static IntentFilterMatchCodes resolveMatchCode(int matchCode) {
+                        return MATCH_CODE_MAP.get(matchCode);
+                    }
+
+                }
+
+                <intent-filter android:label="read_standard_tags_ndef">
+                                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                                <category android:name="android.intent.category.DEFAULT" />
+                                <data android:mimeType="text/plain" />
+                            </intent-filter>
+
+                            <intent-filter android:label="read_standard_tags_ndef2">
+                                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                                <category android:name="android.intent.category.OTHER" />
+                            </intent-filter>
+
+                            <intent-filter android:label="@string/app_name">
+                                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                                <category android:name="android.intent.category.DEFAULT" />
+                                <data android:scheme="http" android:host="aptiqmobile.com" android:pathPattern="iamready*" />
+                            </intent-filter>
+
+
+    <!-- The stock issue buzzcards -->
+    <tech-list>
+        <tech>android.nfc.tech.IsoDep</tech>
+        <tech>android.nfc.tech.NfcA</tech>
+        <tech>android.nfc.tech.NdefFormatable</tech>
+    </tech-list>
+
+    <!-- Sticker chips for activation codes -->
+    <tech-list>
+        <tech>android.nfc.tech.NfcA</tech>
+        <tech>android.nfc.tech.MifareUltralight</tech>
+        <tech>android.nfc.tech.NdefFormatable</tech>
+    </tech-list>
+
+    <!-- Should catch the remaining Ndef messages -->
+    <tech-list>
+        <tech>android.nfc.tech.Ndef</tech>
+    </tech-list>
+

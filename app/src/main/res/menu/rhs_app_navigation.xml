@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_ui_status"
+        android:icon="@drawable/hashicon32"
+        android:title="Admin View"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_TODO_feature1"
+        android:title=" => TODO: Full Scan of BuzzCard"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_TODO_feature2"
+        android:title=" => TODO: Setup Keys for Auth with the Card"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_TODO_feature3"
+        android:title=" => TODO: Add better admin auth"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_TODO_feature4"
+        android:title=" => TODO: Scan old cards / 125.khz range"
+        app:showAsAction="never"/>
+
+</menu>

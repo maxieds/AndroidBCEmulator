@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mschmidt34.nfccardemulator.MainActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <GridLayout
+            style="@style/AppTheme"
+            android:id="@+id/actions_button_grid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0.1dp"
+            android:columnCount="3"
+            android:rowCount="4"
+            android:background="#B1AFB3">
+
+            <Button
+                android:id="@+id/button_open_door"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:layout_columnWeight="0.33"
+                android:onClick="actionButtonOpenDoor"
+                android:drawableLeft="@drawable/opendooricon"
+                android:text="Open Door" />
+
+            <Button
+                android:id="@+id/button_save_log"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:layout_columnWeight="0.33"
+                android:onClick="actionButtonSaveLog"
+                android:drawableLeft="@drawable/saveicon"
+                android:text="Save Log" />
+
+            <Button
+                android:id="@+id/button_clear_log"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:layout_columnWeight="0.33"
+                android:onClick="actionButtonClearLog"
+                android:drawableLeft="@drawable/clearicon"
+                android:text="Clear Log" />
+
+            <Button
+                android:id="@+id/button_my_buzzcard"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:onClick="actionButtonDisplayBuzzcardData"
+                android:drawableLeft="@drawable/buzzcardicon"
+                android:text="BuzzCard" />
+
+            <Button
+                android:id="@+id/button_invoke_beam"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:onClick="actionButtonInvokeBeam"
+                android:drawableLeft="@drawable/nfcicon32"
+                android:text="Invoke Beam" />
+
+            <Button
+                android:id="@+id/button_about_app"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:onClick="actionButtonAboutApp"
+                android:drawableLeft="@drawable/abouticon"
+                android:text="About App" />
+
+            <Button
+                android:id="@+id/button_activate"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:onClick="actionButtonActivateDisplayDialog"
+                android:drawableLeft="@drawable/rfidicon32"
+                android:text="Activate" />
+
+            <Button
+                android:id="@+id/button_keys"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:onClick="actionButtonNotImplemented"
+                android:drawableLeft="@drawable/keyicon"
+                android:text="Key Config" />
+
+            <Button
+                android:id="@+id/write_stickers_button"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="0dp"
+                android:drawableLeft="@drawable/tagicon"
+                android:onClick="actionButtonWriteActivationSticker"
+                android:text="Write Stickers" />
+
+        </GridLayout>
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/dialog_window_title"
+            android:id="@+id/rpsSeekBarTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rpsSeekBarTitle"
+            android:singleLine="true"
+            android:drawablePadding="4dp"
+            android:drawableLeft="@drawable/broadcastphone16"
+            />
+
+        <GridLayout
+            android:id="@+id/seekbar_grid"
+            style="@style/AppTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0.1dp"
+            android:background="#8690C3"
+            android:columnCount="3"
+            android:rowCount="1">
+
+            <ImageView android:src="@drawable/antenna16"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_centerInParent="true"
+                />
+
+            <SeekBar
+                android:id="@+id/rpsSeekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="0.8"
+                android:background="#8690C3"
+                android:max="10000"
+                android:min="1000"
+                android:progress="3000"
+                android:saveEnabled="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/rpsSeekBarCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="0.12"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_centerInParent="true"
+                android:text="3000 ms"
+                android:textAlignment="center" />
+
+        </GridLayout>
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/dialog_window_title"
+            android:id="@+id/consoleLoggerTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/consoleLoggerTitle"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/terminalicon16"
+            android:drawablePadding="4dp"
+            />
+
+        <TextView
+            android:id="@+id/consoleLogger"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.40"
+            android:background="#8690C3"
+            android:fadeScrollbars="false"
+            android:gravity="top"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@color/colorPrimary"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:visibility="visible"
+            android:drawableLeft="@drawable/arrowprompt16"
+            />
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/dialog_window_title"
+            android:id="@+id/ndefLoggerTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ndefLoggerTitle"
+            android:singleLine="true"
+            android:paddingLeft="2dp"
+            android:drawableLeft="@drawable/nfctagicon16"
+            android:drawablePadding="4dp"
+            />
+
+        <TextView
+            android:id="@+id/ndefLogger"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:background="#8690C3"
+            android:fadeScrollbars="false"
+            android:gravity="top"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@color/colorPrimary"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="#32F720"
+            android:textIsSelectable="false"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:visibility="visible"
+            android:drawableLeft="@drawable/datatransfericon16"
+            />
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/dialog_window_title"
+            android:id="@+id/apduLoggerTitleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/apduLoggerTitle"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/incomingdataicon"
+            android:drawablePadding="4dp"
+            />
+
+        <TextView
+            android:id="@+id/apduLogger"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:background="#8690C3"
+            android:fadeScrollbars="false"
+            android:gravity="top"
+            android:scrollbarSize="4dp"
+            android:scrollbarThumbVertical="@color/colorPrimary"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="#E520F7"
+            android:textIsSelectable="false"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:visibility="visible"
+            android:drawableLeft="@drawable/datatransfericon16"
+            />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

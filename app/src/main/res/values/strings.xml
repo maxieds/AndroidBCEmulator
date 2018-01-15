@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BuzzCard Emulator</string>
+    <string name="app_version">v0.0.1 (Alpha)</string>
+    <string name="local_package">com.example.mschmidt34.nfccardemulator</string>
+    <string name="actionbar_title"> | BuzzCard Emulator </string>
+    <string name="servicedesc">Service Description #8230;</string>
+    <string name="aiddescription">Application ID Description #8230;</string>
+    <string name="default_AID">F04F29421848D736</string>
+    <string name="consoleLoggerTitle"> Console Logger: </string>
+    <string name="appActionsTitle">Application Actions: </string>
+    <string name="appAdminTitle">Application Admin: </string>
+    <string name="apduLoggerTitle"> APDU Exchange: </string>
+    <string name="ndefLoggerTitle"> NDEF Exchange: </string>
+    <string name="rpsSeekBarTitle"> Set Radio Presence Check Delay: </string>
+</resources>
